@@ -49,6 +49,11 @@ filetype plugin indent on     " required!
 set nu
 syntax enable
 set background=dark
+set clipboard=unnamed
+" Show whitespace
+" Must be inserted BEFORE the colorscheme
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
 colorscheme solarized
 let g:solarized_termcolors=256
 let python_highlight_all=1
@@ -69,6 +74,9 @@ func SetTitle()
     autocmd BufNewFile * normal G
 endfunc
 
+let g:pymod_repo_extended_complete = 1
+let g:pymod_syntax = 1
+let g:ctrlp_max_height=30
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 "let g:color_coded_filetypes = ['c', 'cpp', 'py']
@@ -162,7 +170,7 @@ let g:rainbow_conf = {
 \   }
 \}
 "highlight YcmErrorLine ctermbg=darkgrey
-"set cursorline
+set cursorline
 "hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=NONE guifg=NONE
 hi Normal ctermfg=252 ctermbg=none
 set so=3                       " Set 7 lines to the cursor - when moving vertically using j/k
@@ -172,19 +180,25 @@ set cursorcolumn
 set nu
 set hls                        " highlight search
 set ignorecase                 " 搜索忽略大小写
+set smartcase
 set incsearch                  " 输入同时搜索
 set ruler                      " 任务栏标尺
 set showcmd                    " 右下角显示待输入命令
 set backspace=indent,eol,start " 让backspace能在行尾删除
 set expandtab                  " 用空格代替tab
 set textwidth=79               " 文本最大长度79，目前不知道有什么用
-"set cindent
-"set smartindent
+set colorcolumn=80
+set nowrap"don't automatically wrap on load
+set fo-=t" don't automatically wrap text when typing
 set showmode
 set magic                      " For regular expressions turn magic on
 set smarttab                   " Be smart when using tabs ;)
 set laststatus=2
 set completeopt=longest,menu
+set nobackup
+set nowritebackup
+set noswapfile
+set relativenumber
 " make tabs visible
 set list
 set listchars=tab:>-,trail:-
@@ -216,6 +230,13 @@ nmap <leader>q :q!<cr>
 nmap <leader>x :x!<cr>
 nmap <leader>o :only<cr>
 
+" Easy moving between tabs
+map <leader>n <esc>:tabprevious<cr>
+map <leader>m <esc>:tabnext<cr>
+
+" Easier moving of code blocks
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indentation
 " Hex mode
 nmap <leader><leader>h :%!xxd<cr>
 nmap <leader><leader>b :%!xxd -r<cr>
