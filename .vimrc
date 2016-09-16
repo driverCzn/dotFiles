@@ -8,7 +8,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-" Plugin  'tpope/vim-fugitive'
+Plugin  'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/vim-easymotion'
@@ -29,19 +29,20 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
 "Plugin 'kien/rainbow_parentheses.vim'
 "Plugin 'jeaye/color_coded'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Bundle 'luochen1990/rainbow'
 "Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/awk.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'vim-scripts/bash-support.vim'
-Plugin 'suan/vim-instant-markdown'
+"Plugin 'suan/vim-instant-markdown'
 "Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/fcitx.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nvie/vim-flake8'
 Plugin 'fs111/pydoc.vim'
 Plugin 'klen/python-mode'
+Plugin 'rking/ag.vim'
 
 call vundle#end()            " required
 filetype plugin indent on     " required!
@@ -90,7 +91,7 @@ let mapleader = ","
 let g:mapleader = ","
 "YouCompleteMe 功能
 " 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
-let g:ycm_confirm_extra_conf=0
+let g:ycm_confirm_extra_conf=1
 " 补全功能在注释中同样有效
 let g:ycm_complete_in_comments=1
 " 开启 YCM 基于标签引擎
@@ -114,7 +115,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:syntastic_error_symbol = '✗'  "set error or warning signs
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting = 0
+let g:syntastic_enable_highlighting = 1
 let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes']
 highlight SyntasticErrorSign guifg=white guibg=black
@@ -180,7 +181,6 @@ set cursorcolumn
 set nu
 set hls                        " highlight search
 set ignorecase                 " 搜索忽略大小写
-set smartcase
 set incsearch                  " 输入同时搜索
 set ruler                      " 任务栏标尺
 set showcmd                    " 右下角显示待输入命令
