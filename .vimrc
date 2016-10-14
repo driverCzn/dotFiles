@@ -43,6 +43,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'fs111/pydoc.vim'
 Plugin 'klen/python-mode'
 Plugin 'rking/ag.vim'
+Plugin 'rdnetto/YCM-Generator'
 
 call vundle#end()            " required
 filetype plugin indent on     " required!
@@ -56,24 +57,40 @@ set clipboard=unnamed
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 colorscheme solarized
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+" let g:solarized_termtrans=0
+" let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
 let g:solarized_termcolors=256
+" let g:solarized_contrast="normal"
+" let g:solarized_visibility="normal"
+" let g:solarized_diffmode="normal"
+" let g:solarized_hitrail=0
+" let g:solarized_menu=1
 let python_highlight_all=1
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile *.c,*.sh :call SetTitle()
+"autocmd BufNewFile *.c,*.sh :call SetTitle()
 autocmd BufNewFile *.py 0r ~/.python_header
 autocmd BufNewFile *.py normal G
 
-func SetTitle()
-    if &filetype == 'c'
-        call setline(1, "#include<stdio.h>")
-    endif
+"func SetTitle()
+    "if &filetype == 'c'
+        "call setline(1, "#include<stdio.h>")
+    "endif
     "if &filetype == 'sh'
         "call setline(1, "#!/bin/bash")
     "endif
 
-    autocmd BufNewFile * normal G
-endfunc
+    "autocmd BufNewFile * normal G
+"endfunc
 
 let g:pymod_repo_extended_complete = 1
 let g:pymod_syntax = 1
@@ -94,8 +111,12 @@ let g:mapleader = ","
 let g:ycm_confirm_extra_conf=1
 " 补全功能在注释中同样有效
 let g:ycm_complete_in_comments=1
+" 在字符串中补全
+let g:ycm_complete_in_strings=1
 " 开启 YCM 基于标签引擎
 let g:ycm_collect_identifiers_from_tags_files=1
+" 从注释和字符串中收集补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " 从第一个键入字符就开始罗列匹配项
 let g:ycm_min_num_of_chars_for_completion=1
 " 语法关键字补全
@@ -104,7 +125,6 @@ let g:ycm_seed_identifiers_with_syntax=1
 set tags+=/data/misc/software/misc./vim/stdcpp.tags
 "让ycm使用ultisnips插件
 let g:ycm_use_ultisnips_completer = 1
-let g:ycm_complete_in_strings = 1
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
@@ -112,16 +132,17 @@ let g:ycm_show_diagnostics_ui = 1
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-let g:syntastic_error_symbol = '✗'  "set error or warning signs
-let g:syntastic_warning_symbol = '⚠'
+"""""""""syntastic""""""""""
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 1
+let g:syntastic_error_symbol = '✗'  "set error or warning signs
+let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes']
 highlight SyntasticErrorSign guifg=white guibg=black
 
-let g:syntastic_cpp_include_dirs = ['/usr/include/']
-let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_include_dirs = ['/usr/include/c++/6.2.1']
+let g:syntastic_cpp_remove_include_errors = 0
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
@@ -172,7 +193,7 @@ let g:rainbow_conf = {
 \}
 "highlight YcmErrorLine ctermbg=darkgrey
 set cursorline
-"hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=NONE guifg=NONE
+ hi CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE guibg=NONE guifg=NONE
 hi Normal ctermfg=252 ctermbg=none
 set so=3                       " Set 7 lines to the cursor - when moving vertically using j/k
 set mouse-=a
@@ -298,7 +319,7 @@ endfunction
 inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
 
 " 配置文件.vimrc更改后自动重新载入使设置生效
-"autocmd! bufwritepost .vimrc source ~/.vimrc
+" autocmd! bufwritepost .vimrc source ~/.vimrc
 "设置重新载入.vimrc快捷键
 map <silent> <leader>ss :source ~/.vimrc<cr>
 " 设置快速编辑.vimrc快捷键
@@ -308,4 +329,14 @@ map <silent> <leader>z :e ~/.zshrc<cr>
 " 设置快速编辑.ycm_extra_conf.py快捷键
 map <silent> <leader>y :e ~/.ycm_extra_conf.py<cr>
 
-set path+=.,~/src/apue.3e/**
+set path+=.,~/src/apue.3e/**,~/hexo_blog/source/_posts
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
