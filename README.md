@@ -1,2 +1,2 @@
 # dotFiles
-This repository contains my configuration files, but now only vim exists.
+This repository contains my configuration files.
