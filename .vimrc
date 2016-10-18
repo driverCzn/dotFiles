@@ -8,13 +8,12 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin  'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
+Plugin  'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'crusoexia/vim-monokai'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -27,16 +26,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-"Plugin 'kien/rainbow_parentheses.vim'
-"Plugin 'jeaye/color_coded'
 Plugin 'scrooloose/syntastic'
 Bundle 'luochen1990/rainbow'
-"Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/awk.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'vim-scripts/bash-support.vim'
-"Plugin 'suan/vim-instant-markdown'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/fcitx.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nvie/vim-flake8'
@@ -44,7 +38,13 @@ Plugin 'fs111/pydoc.vim'
 Plugin 'klen/python-mode'
 Plugin 'rking/ag.vim'
 Plugin 'rdnetto/YCM-Generator'
-
+Plugin 'skammer/vim-css-color'
+Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'davidhalter/jedi-vim'
+"Plugin 'vim-scripts/bash-support.vim'
+"Plugin 'suan/vim-instant-markdown'
+"Plugin 'kien/rainbow_parentheses.vim'
 call vundle#end()            " required
 filetype plugin indent on     " required!
 
@@ -75,7 +75,7 @@ let g:solarized_termcolors=256
 " let g:solarized_hitrail=0
 " let g:solarized_menu=1
 let python_highlight_all=1
-
+let g:cssColorVimDoNotMessMyUpdatetime = 1
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "autocmd BufNewFile *.c,*.sh :call SetTitle()
 autocmd BufNewFile *.py 0r ~/.python_header
@@ -118,7 +118,7 @@ let g:ycm_collect_identifiers_from_tags_files=1
 " 从注释和字符串中收集补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " 从第一个键入字符就开始罗列匹配项
-let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_min_num_of_chars_for_completion=0
 " 语法关键字补全
 let g:ycm_seed_identifiers_with_syntax=1
 "标准库tags，这个没有也没关系，只要.ycm_extra_conf.py文件中指定了正确的标准库路径
@@ -283,7 +283,7 @@ func! CompileRunGcc()
     elseif &filetype == 'python'
         exec "!time python3 %"
     elseif &filetype == 'html'
-        exec "!google-chrome % &"
+        exec "!google-chrome-stable % &"
     elseif &filetype == 'go'
         " exec "!go build %<"
         exec "!time go run %"
