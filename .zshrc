@@ -55,7 +55,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages z pip)
+plugins=(git zsh-autosuggestions colored-man-pages zsh-syntax-highlighting z postgres tmux npm)
 
 # User configuration
 
@@ -64,7 +64,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages z pip
 
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -94,6 +94,8 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source /usr/bin/virtualenvwrapper.sh
+export EDITOR=vim
 export TERM="xterm-256color"
 export VISUAL="vim"
 export PYTHONSTARTUP=~/.pythonrc
@@ -101,3 +103,9 @@ alias mb="musicbox"
 alias proxychains="proxychains -q"
 alias burpsuite="java -jar ~/Downloads/burpsuite/BurpLoader.jar"
 alias tree="tree -C"
+alias ls="ls -F --color=tty --group-directories-first"
+alias zshconfig="vim ~/.zshrc"
+alias msfconsole="msfconsole -x \"db_connect ${USER}@msfdb\""
+alias gdb="gdb -q"
+alias pcalc="pcalc -n"
+
