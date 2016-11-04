@@ -152,15 +152,15 @@ let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_enable_balloons = 1 "whether to show balloons
 
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
-"let g:ycm_semantic_triggers =  {
-            "\   'c' : ['->', '.'],
-            "\   'cpp,objcpp' : ['->', '.', '::'],
-            "\   'perl' : ['->'],
-            "\   'php' : ['->', '::'],
-            "\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-            "\   'ruby' : ['.', '::'],
-            "\   'lua' : ['.', ':'],
-            "\ }
+let g:ycm_semantic_triggers =  {
+            \   'c' : ['->', '.'],
+            \   'cpp,objcpp' : ['->', '.', '::'],
+            \   'perl' : ['->'],
+            \   'php' : ['->', '::'],
+            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'ruby' : ['.', '::'],
+            \   'lua' : ['.', ':'],
+            \ }
 " Expand snippet or return
 let g:ulti_expand_res = 1
 function! Ulti_ExpandOrEnter()
