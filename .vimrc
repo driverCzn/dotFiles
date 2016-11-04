@@ -8,12 +8,13 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 Plugin  'tpope/vim-fugitive'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'crusoexia/vim-monokai'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -26,25 +27,23 @@ Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
+"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'jeaye/color_coded'
 Plugin 'scrooloose/syntastic'
 Bundle 'luochen1990/rainbow'
+"Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/awk.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'vim-scripts/bash-support.vim'
+"Plugin 'suan/vim-instant-markdown'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/fcitx.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nvie/vim-flake8'
 Plugin 'fs111/pydoc.vim'
 Plugin 'klen/python-mode'
 Plugin 'rking/ag.vim'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'skammer/vim-css-color'
-Plugin 'jaxbot/semantic-highlight.vim'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'davidhalter/jedi-vim'
-"Plugin 'vim-scripts/bash-support.vim'
-"Plugin 'suan/vim-instant-markdown'
-"Plugin 'kien/rainbow_parentheses.vim'
+
 call vundle#end()            " required
 filetype plugin indent on     " required!
 
@@ -55,6 +54,8 @@ set clipboard=unnamed
 " Show whitespace
 " Must be inserted BEFORE the colorscheme
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" Auto change work directory
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 au InsertLeave * match ExtraWhitespace /\s\+$/
 colorscheme solarized
 if has('gui_running')
@@ -75,7 +76,9 @@ let g:solarized_termcolors=256
 " let g:solarized_hitrail=0
 " let g:solarized_menu=1
 let python_highlight_all=1
-let g:cssColorVimDoNotMessMyUpdatetime = 1
+"for conflict between pymode's complete_on_dot and ycm's prompt
+let g:pymode_rope_complete_on_dot = 0
+
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "autocmd BufNewFile *.c,*.sh :call SetTitle()
 autocmd BufNewFile *.py 0r ~/.python_header
@@ -100,8 +103,8 @@ let g:cpp_experimental_template_highlight = 1
 "let g:color_coded_filetypes = ['c', 'cpp', 'py']
 "let g:color_coded_enabled = 1
 
-let g:BASH_AuthorName   = 'driverczn'
-let g:BASH_Email        = 'driverczn@gmail.com'
+"let g:BASH_AuthorName   = 'driverczn'
+"let g:BASH_Email        = 'driverczn@gmail.com'
 
 "将leader设为逗号
 let mapleader = ","
@@ -118,7 +121,7 @@ let g:ycm_collect_identifiers_from_tags_files=1
 " 从注释和字符串中收集补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " 从第一个键入字符就开始罗列匹配项
-let g:ycm_min_num_of_chars_for_completion=0
+let g:ycm_min_num_of_chars_for_completion=1
 " 语法关键字补全
 let g:ycm_seed_identifiers_with_syntax=1
 "标准库tags，这个没有也没关系，只要.ycm_extra_conf.py文件中指定了正确的标准库路径
@@ -149,15 +152,15 @@ let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_enable_balloons = 1 "whether to show balloons
 
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
-let g:ycm_semantic_triggers =  {
-            \   'c' : ['->', '.'],
-            \   'cpp,objcpp' : ['->', '.', '::'],
-            \   'perl' : ['->'],
-            \   'php' : ['->', '::'],
-            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-            \   'ruby' : ['.', '::'],
-            \   'lua' : ['.', ':'],
-            \ }
+"let g:ycm_semantic_triggers =  {
+            "\   'c' : ['->', '.'],
+            "\   'cpp,objcpp' : ['->', '.', '::'],
+            "\   'perl' : ['->'],
+            "\   'php' : ['->', '::'],
+            "\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            "\   'ruby' : ['.', '::'],
+            "\   'lua' : ['.', ':'],
+            "\ }
 " Expand snippet or return
 let g:ulti_expand_res = 1
 function! Ulti_ExpandOrEnter()
@@ -219,7 +222,7 @@ set completeopt=longest,menu
 set nobackup
 set nowritebackup
 set noswapfile
-set relativenumber
+"set relativenumber
 " make tabs visible
 set list
 set listchars=tab:>-,trail:-
