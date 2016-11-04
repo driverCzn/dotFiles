@@ -78,6 +78,7 @@ let g:solarized_termcolors=256
 let python_highlight_all=1
 "for conflict between pymode's complete_on_dot and ycm's prompt
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_breakpoint = 0
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "autocmd BufNewFile *.c,*.sh :call SetTitle()
