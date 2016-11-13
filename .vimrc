@@ -43,6 +43,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'fs111/pydoc.vim'
 Plugin 'klen/python-mode'
 Plugin 'rking/ag.vim'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()            " required
 filetype plugin indent on     " required!
@@ -75,6 +76,12 @@ let g:solarized_termcolors=256
 " let g:solarized_diffmode="normal"
 " let g:solarized_hitrail=0
 " let g:solarized_menu=1
+let g:airline_theme='hybridline'
+let g:airline_powerline_fonts=1
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:indentLine_char = '┊'
+let g:indentLine_enabled = 1
+let g:indentLine_fileType = [] " denotes that all file types are supported
 let python_highlight_all=1
 "for conflict between pymode's complete_on_dot and ycm's prompt
 let g:pymode_rope_complete_on_dot = 0
@@ -249,6 +256,7 @@ map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC>:NERDTreeToggle<CR>
 map! <C-O> <C-Y>,
 
+nmap <F9> :TagbarToggle<CR>
 " Fast saving && quitting
 nmap <leader><leader>w :w!<cr>
 nmap <leader>q :q!<cr>
