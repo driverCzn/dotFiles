@@ -1,3 +1,4 @@
+eval $(thefuck --alias)
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
@@ -10,6 +11,7 @@ ZSH_THEME="powerline"
 POWERLINE_RIGHT_A="mixed"
 POWERLINE_RIGHT_A_COLOR_FRONT="white"
 POWERLINE_RIGHT_A_COLOR_BACK="blue"
+POWERLINE_DATE_FORMAT="%D{%m-%d-%Y}"
 #POWERLINE_SHORT_HOST_NAME="true"
 POWERLINE_PATH="short"
 
@@ -18,25 +20,19 @@ POWERLINE_PATH="short"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -55,8 +51,8 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions colored-man-pages zsh-syntax-highlighting z postgres tmux npm)
-
+plugins=(git zsh-autosuggestions colored-man-pages zsh-syntax-highlighting z pip python pep8 virtualenvwrapper)
+# plugins postgres npm
 # User configuration
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -100,12 +96,23 @@ export TERM="xterm-256color"
 export VISUAL="vim"
 export PYTHONSTARTUP=~/.pythonrc
 alias mb="musicbox"
-alias proxychains="proxychains -q"
+alias p="proxychains -q"
 alias burpsuite="java -jar ~/Downloads/burpsuite/BurpLoader.jar"
 alias tree="tree -C"
 alias ls="ls -F --color=tty --group-directories-first"
-alias zshconfig="vim ~/.zshrc"
+alias zc="vim ~/.zshrc"
 alias msfconsole="msfconsole -x \"db_connect ${USER}@msfdb\""
 alias gdb="gdb -q"
 alias pcalc="pcalc -n"
-
+alias p2="python2"
+alias p3="python"
+alias ip2="ipython2"
+alias ip3="ipython"
+alias ssconfig="sudo vim /etc/shadowsocks/config.json"
+alias ssrestart="sudo systemctl restart shadowsocks@config"
+alias vc="vim ~/.vimrc"
+alias startnet="p2 ~/Downloads/looch_net.py"
+alias syu="yaourt -Syu"
+alias g32="gcc -m32"
+alias pwn="gdb"
+alias objdump="objdump -M intel"
