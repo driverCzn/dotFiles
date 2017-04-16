@@ -1,3 +1,4 @@
 e dbg.bep=entry
 e scr.utf8=true
 eco focus
+e asm.emu=true
