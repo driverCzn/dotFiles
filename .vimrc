@@ -37,6 +37,13 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 Plugin 'tpope/vim-commentary'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'zeek/vim-zeek'
+Plugin 'mephux/bro.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'junegunn/vim-easy-align'
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 
 " All of your Plugins must be added before the following line
@@ -112,5 +119,7 @@ func! CompileRunGcc()
     elseif &filetype == 'mkd'
         exec "!~/.vim/markdown.pl % > %.html &"
         exec "!google-chrome %.html &"
+    elseif &filetype == 'zeek'
+        exec "!zeek %"
     endif
 endfunc
