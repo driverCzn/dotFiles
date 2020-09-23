@@ -166,3 +166,7 @@ function reps(){
 source $ZPLUG_REPOS/b4b4r07/enhancd/init.sh
 source $ZSH/oh-my-zsh.sh
 zplug load
+
+alias tl='tmux list-sessions'
+alias ta='tmux attach -t'
+alias tn='tmux new-sess -s'
