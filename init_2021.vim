@@ -9,6 +9,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'christoomey/vim-tmux-runner'
+Plug 'tpope/vim-fugitive'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
