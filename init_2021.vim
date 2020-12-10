@@ -23,6 +23,7 @@ call plug#end()
 
 set nu
 set rnu
+set autochdir
 
 imap <C-l> <Plug>(coc-snippets-expand)
 
