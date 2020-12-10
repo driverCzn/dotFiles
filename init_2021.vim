@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'easymotion/vim-easymotion'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -53,3 +54,19 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 "+https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
 nnoremap <silent><a-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><a-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" EasyMotion config
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
