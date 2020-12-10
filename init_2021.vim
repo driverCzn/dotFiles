@@ -13,6 +13,7 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'easymotion/vim-easymotion'
+Plug 'zeek/vim-zeek'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
