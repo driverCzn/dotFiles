@@ -27,6 +27,8 @@ set nu
 set rnu
 set autochdir
 
+let g:mapleader = ","
+
 imap <C-l> <Plug>(coc-snippets-expand)
 
 
