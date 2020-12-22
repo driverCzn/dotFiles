@@ -28,6 +28,10 @@ set rnu
 set autochdir
 set sw=4
 
+" 2 spaces filetypes
+autocmd Filetype yaml setlocal sw=2
+autocmd Filetype html setlocal sw=2
+
 let g:mapleader = ","
 
 imap <C-l> <Plug>(coc-snippets-expand)
