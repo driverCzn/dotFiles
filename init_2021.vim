@@ -23,6 +23,8 @@ endif
 
 call plug#end()
 
+nnoremap <space>n :e ~/dotFiles/init_2021.vim<cr> 
+
 set nu
 set rnu
 set autochdir
@@ -81,3 +83,6 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " add ; at end of line
 nnoremap <a-;> A;<ESC>
+
+nnoremap <space>c :CocCommand 
+nnoremap <space>t :Tags<cr> 
