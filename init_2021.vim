@@ -26,6 +26,7 @@ call plug#end()
 set nu
 set rnu
 set autochdir
+set sw=4
 
 let g:mapleader = ","
 
