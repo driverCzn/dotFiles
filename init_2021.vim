@@ -28,6 +28,8 @@ nnoremap <space>n :e ~/dotFiles/init_2021.vim<cr>
 
 set nu
 set rnu
+set ignorecase
+set smartcase
 set autochdir
 set sw=4
 
