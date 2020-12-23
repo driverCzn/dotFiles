@@ -92,7 +92,8 @@ nnoremap <space>c :CocCommand
 nnoremap <space>t :Tags<cr> 
 
 " <space>r varies on filetype
-autocmd Filetype python nnoremap <space>r :CocCommand python.execInTerminal<cr>
+" autocmd Filetype python nnoremap <space>r :CocCommand python.execInTerminal<cr>
+autocmd Filetype python nnoremap <space>r :!/usr/bin/env python %<cr>
 
 " new line in insert mode
 inoremap <c-a> <esc>o
