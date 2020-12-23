@@ -43,6 +43,7 @@ imap <C-l> <Plug>(coc-snippets-expand)
 
 
 nnoremap <space>e :CocCommand explorer<cr>
+nnoremap <space>d :CocDiagnostics<cr>
 
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
