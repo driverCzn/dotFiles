@@ -95,3 +95,7 @@ autocmd Filetype python nnoremap <space>r :CocCommand python.execInTerminal<cr>
 
 " new line in insert mode
 inoremap <c-a> <esc>o
+
+" move cursor in insert mode
+inoremap <c-f> <right>
+inoremap <c-g> <s-right>
