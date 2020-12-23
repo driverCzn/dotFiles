@@ -15,6 +15,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'easymotion/vim-easymotion'
 Plug 'zeek/vim-zeek'
 Plug 'jiangmiao/auto-pairs'
+Plug 'honza/vim-snippets'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
