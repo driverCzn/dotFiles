@@ -17,6 +17,7 @@ Plug 'zeek/vim-zeek'
 Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
 Plug 'morhetz/gruvbox'
+Plug 'ekalinin/Dockerfile.vim'
 
 autocmd vimenter * ++nested colorscheme gruvbox
 
