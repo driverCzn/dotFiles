@@ -18,6 +18,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
 Plug 'morhetz/gruvbox'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 autocmd vimenter * ++nested colorscheme gruvbox
 
