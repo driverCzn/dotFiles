@@ -20,6 +20,7 @@ Plug 'morhetz/gruvbox'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
 
 autocmd vimenter * ++nested colorscheme gruvbox
 
