@@ -95,6 +95,7 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " add ; at end of line
 nnoremap <a-;> A;<ESC>
+xnoremap <a-;> <c-v>$A;<ESC>
 
 nnoremap <space>c :CocCommand 
 nnoremap <space>t :Tags<cr> 
