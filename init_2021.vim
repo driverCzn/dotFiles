@@ -40,6 +40,7 @@ set ignorecase
 set smartcase
 set autochdir
 set sw=4
+set hidden
 
 " 2 spaces filetypes
 autocmd Filetype yaml setlocal sw=2
