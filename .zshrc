@@ -170,3 +170,14 @@ zplug load
 alias tl='tmux list-sessions'
 alias ta='tmux attach -t'
 alias tn='tmux new-sess -s'
+
+# for ssh-agent
+AGPID=`ps -ef |grep ssh-agent |grep -v grep |awk '{print $2}'`
+AGSCK=`find /tmp -name agent.\* 2>/dev/null`
+if [ -n "$AGPID" ]
+then
+    export SSH_AUTH_SOCK=$AGSCK
+    export SSH_AGENT_PID=$AGPID
+else
+    eval "$(ssh-agent -s)"
+fi
