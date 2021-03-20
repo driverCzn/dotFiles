@@ -63,7 +63,7 @@
 (require 'zeek-mode)
 
 (display-time)
-(minimap-mode)
+;; (minimap-mode)
 
 (setq select-enable-clipboard nil)
 
