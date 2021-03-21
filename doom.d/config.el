@@ -57,7 +57,7 @@
 (setq exec-path (append exec-path '("~/zeek-3.2.2/build/src/")))
 (setenv "PATH" (concat (getenv "PATH") ":~/zeek-3.2.2/build/src/"))
 (setenv "ZEEKPATH" "~/zeek-3.2.2/build/src:~/zeek-3.2.2/scripts:~/zeek-3.2.2/scripts/policy:~/zeek-3.2.2/scripts/site")
-(add-to-list 'load-path "~/emacs.d/.local/straight/build-28.0.50/zeek-mode/")
+(add-to-list 'load-path "~/.emacs.d/.local/straight/build-27.1/zeek-mode/")
 (setq zeek-event-bif "~/zeek-3.2.2/build/src/base/event.bif.zeek")
 (setq zeek-tracefiles "~/tracefiles")
 (require 'zeek-mode)
