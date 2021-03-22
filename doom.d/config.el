@@ -72,3 +72,5 @@
 (if (not (display-graphic-p))
   (send-string-to-terminal "\033]12;#5C5CFF\007")
 )
+
+(defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130))
