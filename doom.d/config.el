@@ -74,3 +74,5 @@
 )
 
 (defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130))
+(setq google-translate-translation-directions-alist
+      '(("en" . "zh-CN" )))
