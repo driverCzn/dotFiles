@@ -38,7 +38,7 @@ set nu
 set rnu
 set ignorecase
 set smartcase
-set autochdir
+" set autochdir
 set sw=4
 set hidden
 set cmdheight=2
