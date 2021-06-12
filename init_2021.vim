@@ -135,3 +135,14 @@ inoremap <c-a> <esc>o
 " move cursor in insert mode
 inoremap <c-f> <right>
 inoremap <c-g> <s-right>
+
+au BufEnter *.cpp set makeprg=g++\ -g\ %\ -o\ %< 
+au BufEnter *.c set makeprg=gcc\ -g\ %\ -o\ %< 
+" au BufEnter *.py set makeprg=python\ % 
+" au BufEnter *.[rR] set makeprg=Rscript\ %
+map <F5> :call CompileGcc()<CR>
+func! CompileGcc()
+    exec "w" 
+    silent make
+    exec "!%<"
+endfunc
